@@ -1,4 +1,4 @@
-#brew install dockutil
+brew install dockutil
 
 ###############################################################################
 # Configure Dock                                                              #
@@ -24,7 +24,8 @@ dockutil --add /Applications/VMware\ Fusion.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Notes.app
 dockutil --add /Applications/Evernote.app
-dockutil --add /Applications/Spotify.app
+dockutil --add '' --type spacer --section apps
+dockutil --add /Applications/Spotify.app --section others
 
 
 defaults write com.apple.dock tilesize -int 40
