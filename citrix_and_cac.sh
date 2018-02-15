@@ -3,6 +3,7 @@
 # Install CAC software
 curl -O https://militarycac.com/files/CACKey/CACKey_0.7.8_Slandup.pkg.tar.gz | tar -xzf
 sudo installer -pkg  CACKey_0.7.8_Slandup.pkg -target /Volumes/Macintosh\ HD
+rm -f CACKey_0.7.8_Slandup.pkg
 
 # Install DOD CAs
 curl -O https://militarycac.com/maccerts/AllCerts.zip
@@ -24,3 +25,6 @@ done
 brew cask install citrix-receiver
 defaults write com.citrix.receiver.nomas PKCS11ModulePath -string /Library/CACKey/libcackey.dylib
 defaults write com.citrix.receiver.nomas PKCS11ModuleEnabled YES
+
+rm -f AllCerts.zip
+rm -rf DoD_CAs

@@ -1,4 +1,6 @@
-https://github.com/mathiasbynens/dotfiles
+#!/bin/zsh
+
+# Reference - https://github.com/mathiasbynens/dotfiles
 
 #Terminal
 # Set zsh as default shell
@@ -43,7 +45,8 @@ brew install mas
 
 # Install Memory Clean 2
 # Retrieve ID by running "mas search 'Memory Clean 2'"
-mas signin mas@example.com
+echo "Installing Memory Clean 2 - Apple Store password required"
+mas signin brian@brianalbers.com
 mas install 1114591412
 
 # Install more recent versions of some macOS tools.
@@ -58,12 +61,6 @@ brew install tree
 # Install AWS tools
 brew install s3cmd
 brew install awscli
-
-# Install MenuMeters
-curl -O curl -O https://member.ipmu.jp/yuji.tachikawa/MenuMetersElCapitan/zips/MenuMeters_1.9.6.zip
-unzip MenuMeters_1.9.6.zip
-mv MenuMeters.prefPane  /Users/balbers/Library/PreferencePanes
-rm -f MenuMeters_1.9.6.zip
 
 # Install Homebrew Cask
 brew tap caskroom/cask
@@ -88,29 +85,6 @@ brew cask install google-chrome
 
 # Install Atom
 brew cask install atom
-
-# Install nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-source ~/.zshrc
-
-# Generate ssh key
-ssh-keygen -t rsa -C "$(hostname)"
-
-# Install yarn
-brew install yarn --without-node
-
-# Install Docker for MacOS
-curl -O https://download.docker.com/mac/stable/Docker.dmg
-hdiutil attach Docker.dmg
-cp -rf /Volumes/Docker/Docker.app /Applications
-open -a Docker
-
-# Install SourceTree
-brew cask install sourcetree
-mkdir dev
-mkdir dev/projects
-
-brew cask install pycharm-ce
 
 brew cask install spotify
 

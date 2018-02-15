@@ -1,5 +1,7 @@
-#System Preferences
-#- Trackpad setup
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
 
 # Enable Dragging - Three finger drag
 # Accessibility > Mouse and Trackpad > Trackpad Options

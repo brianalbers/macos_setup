@@ -15,6 +15,12 @@ brew install gnupg gnupg2
 # Install RVM and latest stable version of Ruby
 curl -sSL https://get.rvm.io | bash -s stable
 
+# Install Docker for MacOS
+curl -O https://download.docker.com/mac/stable/Docker.dmg
+hdiutil attach Docker.dmg
+cp -rf /Volumes/Docker/Docker.app /Applications
+open -a Docker
+
 # Install Webstorm
 brew cask install jetbrains-toolbox
 brew cask install webstorm
