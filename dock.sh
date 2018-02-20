@@ -9,6 +9,7 @@ dockutil --add /Applications/System\ Preferences.app
 dockutil --add /Applications/Reminders.app
 dockutil --add /Applications/Calendar.app
 dockutil --add /Applications/Notes.app
+dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Safari.app
 dockutil --add /Applications/Google\ Chrome.app
 dockutil --add /Applications/Slack.app
