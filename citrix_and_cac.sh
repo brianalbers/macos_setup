@@ -22,7 +22,6 @@ do
 done
 
 # Install Citrix Receiver
-brew cask install citrix-receiver
 defaults write com.citrix.receiver.nomas PKCS11ModulePath -string /Library/CACKey/libcackey.dylib
 defaults write com.citrix.receiver.nomas PKCS11ModuleEnabled YES
 

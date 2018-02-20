@@ -48,6 +48,11 @@ brew install mas
 mas signin brian@brianalbers.com
 mas install 1114591412
 
+# Install Apple Office Applications
+mas install 409203825  # Numbers
+mas install 409183694  # Keynote
+mas install 409201541  # Pages
+
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
 brew install grep
@@ -77,9 +82,11 @@ cp -f dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences
 
 # Install Slack
 brew cask install slack
+open /Applications/Slack.app
 
 # Install rocket.chat
 brew cask install rocket-chat
+open /Applications/Rocket.chat+.app
 
 # Install Google Chrome
 brew cask install google-chrome
@@ -102,6 +109,7 @@ open /Applications/VMware\ Fusion.app
 # Commented out due to license limitations of 2 computers
 #brew cask install evernote
 
+brew cask install citrix-receiver
 sudo ./citrix_and_cac.sh
 
 # Remove brew cruft
