@@ -56,6 +56,9 @@ brew install nmap
 brew install ack
 brew install tree
 
+# Install openssl
+brew install openssl
+
 # Install iStat menu bar - se
 brew cask install istat-menus
 open /Applications/iStat\ Menus.app

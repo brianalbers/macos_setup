@@ -36,7 +36,13 @@ mkdir dev/projects
 brew install s3cmd
 brew install awscli
 
-# Generate ssh key
+# Setup ssh
+# Encrypt: openssl enc -aes-256-cbc -md md5 -salt -in configurerc.sh -out configurerc.sh.aes
+cp ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/BITS/certs.tar.aes ~/.ssh/.
+echo "1.1(upper)(evens)2bangs"
+openssl enc -aes-256-cbc -md md5 -d -in ~/.ssh/certs.tar.aes -out ~/.ssh/certs.tar
+tar xf ~/.ssh/certs.tar
+
 ssh-keygen -t rsa -C "$(hostname)"
 cat ~/.ssh/id_rsa.pub | echo
 cp dotfiles/ssh_config ~/.ssh/.ssh_config
