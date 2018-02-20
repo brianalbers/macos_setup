@@ -219,8 +219,6 @@ defaults write ShowRemovableMediaOnDesktop -bool false
 defaults write ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder FXICloudDriveEnabled -bool true
 defaults write com.apple.screencapture location ~/Pictures
-killall SystemUIServer
-killall Finder
 
 ###############################################################################
 # Install m-cli and set wallpaper
