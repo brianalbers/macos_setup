@@ -222,6 +222,18 @@ defaults write com.apple.screencapture location ~/Pictures
 killall SystemUIServer
 killall Finder
 
+###############################################################################
+# Install m-cli and set wallpaper
+# Set Screensaver																															#
+# https://github.com/rgcr/m-cli                                               #
+###############################################################################
+brew update
+brew install m-cli
+cp -f ./wallpaper/rocky_mountains_landscape_colorado-wallpaper-2560x1440.jpg ~/Pictures/.
+m wallpaper ~/Pictures/rocky_mountains_landscape_colorado-wallpaper-2560x1440.jpg
+
+cp -rf "./wallpaper/Epoch Flip Clock.saver" /Users/balbers/Library/Screen\ Savers
+defaults -currentHost write com.apple.screensaver modulePath -string "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
 
 ###############################################################################
 # Kill affected applications                                                  #
