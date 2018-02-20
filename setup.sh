@@ -94,7 +94,7 @@ brew cask install atom
 brew cask install spotify
 
 # Install VMware Fusion
-brew cask install caskroom/versions/vmware-fusion
+brew cask install vmware-fusion
 open /Applications/VMware\ Fusion.app
 #export serial=""
 #/Applications/VMware\ Fusion.app/Contents/Library/Initialize\ VMware\ Fusion.tool set "" "" ${serial}
@@ -110,8 +110,8 @@ brew cleanup
 # Remove cask cruft
 brew cask cleanup
 
-./macos.sh
-
 ./dev_environments.sh
 
 ./dock.sh
+
+./macos.sh
