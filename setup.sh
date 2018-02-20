@@ -83,9 +83,13 @@ brew cask install webstorm
 # Install Google Chrome
 brew cask install google-chrome
 
+# Install Firefox Developer Edition
+brew cask install firefox-developer-edition
+
 # Install Atom
 brew cask install atom
 
+# Install Spotify for music
 brew cask install spotify
 
 # Install VMware Fusion
