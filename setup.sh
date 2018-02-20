@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # https://github.com/mathiasbynens/dotfiles
 
 #Terminal
