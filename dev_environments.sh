@@ -32,6 +32,11 @@ brew cask install sourcetree
 mkdir dev
 mkdir dev/projects
 
+# Install AWS tools
+brew install s3cmd
+brew install awscli
+
 # Generate ssh key
 ssh-keygen -t rsa -C "$(hostname)"
-cp .ssh_config ~/.ssh
+cat ~/.ssh/id_rsa.pub | echo
+cp dotfiles/ssh_config ~/.ssh/.ssh_config
