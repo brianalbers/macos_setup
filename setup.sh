@@ -109,8 +109,13 @@ open /Applications/VMware\ Fusion.app
 # Commented out due to license limitations of 2 computers
 #brew cask install evernote
 
-brew cask install citrix-receiver
 sudo ./citrix_and_cac.sh
+
+# Install Citrix Receiver
+brew cask install citrix-receiver
+defaults write com.citrix.receiver.nomas PKCS11ModulePath -string /Library/CACKey/libcackey.dylib
+defaults write com.citrix.receiver.nomas PKCS11ModuleEnabled YES
+
 
 # Remove brew cruft
 brew cleanup

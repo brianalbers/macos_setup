@@ -21,9 +21,5 @@ do
   security add-trusted-cert -d -e hostnameMismatch -r unspecified -k /Library/Keychains/System.keychain "$i"
 done
 
-# Install Citrix Receiver
-defaults write com.citrix.receiver.nomas PKCS11ModulePath -string /Library/CACKey/libcackey.dylib
-defaults write com.citrix.receiver.nomas PKCS11ModuleEnabled YES
-
 rm -f AllCerts.zip
 rm -rf DoD_CAs
