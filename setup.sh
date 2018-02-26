@@ -101,7 +101,7 @@ open /Applications/Rocket.chat+.app
 brew cask install google-chrome
 
 # Install Firefox Developer Edition
-brew cask install firefox-developer-edition
+brew cask install caskroom/versions/firefox-developer-edition
 
 # Install Atom
 brew cask install atom

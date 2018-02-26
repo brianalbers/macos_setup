@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 # Install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 source ~/.zshrc
@@ -50,3 +52,5 @@ rm -f ~/.ssh certs.tar.aes
 ssh-keygen -t rsa -C "$(hostname)"
 cat ~/.ssh/id_rsa.pub | echo
 cp dotfiles/ssh_config ~/.ssh/.ssh_config
+
+return 1
