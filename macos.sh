@@ -32,6 +32,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+# Enable AirDrop over Ethernet and on Unsupported Macs
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
@@ -131,9 +134,11 @@ defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 defaults write com.apple.Safari ProxiesInBookmarksBar "()"
 
 # Enable the Develop menu and the Web Inspector in Safari
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
 defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
+defaults write -g WebKitDeveloperExtras -bool true
 
 # Warn about fraudulent websites
 defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
@@ -201,8 +206,6 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-
-
 #Finder Preferences
 #- Finder>Preferences
 #    - >General
@@ -223,15 +226,19 @@ defaults write com.apple.finder FXICloudDriveEnabled -bool true
 defaults write com.apple.screencapture location ~/Pictures
 
 ###############################################################################
-# Install m-cli and set wallpaper
-# Set Screensaver																															#
-# https://github.com/rgcr/m-cli                                               #
+# Set screensaver																															#
 ###############################################################################
-brew update
-brew install m-cli
-cp -f ./wallpaper/rocky_mountains_landscape_colorado-wallpaper-2560x1440.jpg ~/Pictures/.
-m wallpaper ~/Pictures/rocky_mountains_landscape_colorado-wallpaper-2560x1440.jpg
+cp -f ./wallpaper/aero_dark_orange_13-wallpaper-2560x1440.jpg ~/Pictures/.
+cp -f ./wallpaper/minimalist_orange-wallpaper-2560x1440.jpg ~/Pictures/.
 
+sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db <<EOS
+	delete from data;
+	insert into data values ("/Library/Desktop Pictures/Solid Colors"), ("~/Pictures"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg"), ("~/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg");
+EOS
+
+###############################################################################
+# Set wallpaper																																#
+###############################################################################
 cp -rf "./wallpaper/Epoch Flip Clock.saver" /Users/balbers/Library/Screen\ Savers
 defaults -currentHost write com.apple.screensaver modulePath -string "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
 

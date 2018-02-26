@@ -2,6 +2,7 @@
 
 # https://github.com/mathiasbynens/dotfiles
 # https://github.com/Stratus3D/dotfiles
+# https://github.com/herrbischoff/awesome-macos-command-line#transparency
 
 #Terminal
 # Set zsh as default shell
@@ -71,6 +72,9 @@ brew install openssh
 brew install nmap
 brew install ack
 brew install tree
+
+# Install m-cli - https://github.com/rgcr/m-cli                                               #
+brew install m-cli
 
 # Install openssl
 brew install openssl
