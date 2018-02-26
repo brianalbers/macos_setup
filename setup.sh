@@ -14,6 +14,7 @@ mkdir $HOME/dev
 mkdir $HOME/dev/projects
 cd $HOME/dev/projects/
 git clone https://github.com/brianalbers/macos_setup.git
+export MACOS_SETUP_DIR=$HOME/dev/projects/macos_setup
 
 # Install Home-brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -116,13 +117,12 @@ open /Applications/VMware\ Fusion.app
 # Commented out due to license limitations of 2 computers
 #brew cask install evernote
 
-sudo ./citrix_and_cac.sh
+sudo $MACOS_SETUP_DIR/citrix_and_cac.sh
 
 # Install Citrix Receiver
 brew cask install citrix-receiver
 defaults write com.citrix.receiver.nomas PKCS11ModulePath -string /Library/CACKey/libcackey.dylib
 defaults write com.citrix.receiver.nomas PKCS11ModuleEnabled YES
-
 
 # Remove brew cruft
 brew cleanup
@@ -130,8 +130,8 @@ brew cleanup
 # Remove cask cruft
 brew cask cleanup
 
-./dev_environments.sh
+$MACOS_SETUP_DIR/dev_environments.sh
 
-./dock.sh
+$MACOS_SETUP_DIR/dock.sh
 
-./macos.sh
+$MACOS_SETUP_DIR/macos.sh
