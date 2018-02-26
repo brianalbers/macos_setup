@@ -131,8 +131,8 @@ brew cleanup
 # Remove cask cruft
 brew cask cleanup
 
-source $MACOS_SETUP_DIR/dev_environments.sh
+./dev_environments.sh
 
-source $MACOS_SETUP_DIR/dock.sh
+./dock.sh
 
-source $MACOS_SETUP_DIR/macos.sh
+./macos.sh
