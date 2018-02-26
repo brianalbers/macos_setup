@@ -46,10 +46,12 @@ cp ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/BITS/certs.tar.aes ~/.ssh/.
 echo "1.1(upper)(evens)2bangs"
 openssl enc -aes-256-cbc -md md5 -d -in ~/.ssh/certs.tar.aes -out ~/.ssh/certs.tar
 tar xf ~/.ssh/certs.tar -C ~/.ssh
-rm -f ~/.ssh certs.tar
-rm -f ~/.ssh certs.tar.aes
+rm -f ~/.ssh/certs.tar
+rm -f ~/.ssh/certs.tar.aes
 
-ssh-keygen -t rsa -C "$(hostname)" -f "$HOME/.ssh/id_rsa"
+if [ ! -f "$HOME/.ssh/id_rsa.pub"]; then
+  ssh-keygen -t rsa -C "$(hostname)" -f "$HOME/.ssh/id_rsa"
+fi
 cat ~/.ssh/id_rsa.pub | echo
 cp -f $MACOS_SETUP_DIR/dotfiles/ssh_config ~/.ssh/.ssh_config
 
