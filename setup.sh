@@ -12,8 +12,8 @@ xcode-select --install
 # Clone macos_setup project from github
 mkdir $HOME/dev
 mkdir $HOME/dev/projects
-git clone https://github.com/brianalbers/macos_setup.git $HOME/dev/projects
-cd $HOME/dev/projects
+cd $HOME/dev/projects/
+git clone https://github.com/brianalbers/macos_setup.git
 
 # Install Home-brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
