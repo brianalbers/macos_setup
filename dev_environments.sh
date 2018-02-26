@@ -20,6 +20,8 @@ curl -O https://download.docker.com/mac/stable/Docker.dmg
 hdiutil attach Docker.dmg
 cp -rf /Volumes/Docker/Docker.app /Applications
 open -a Docker
+hdiutil detach /dev/disk2
+rm -f Docker.dmg
 
 # Install Webstorm
 brew cask install jetbrains-toolbox

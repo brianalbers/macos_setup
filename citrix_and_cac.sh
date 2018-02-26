@@ -4,6 +4,7 @@
 curl -O https://militarycac.com/files/CACKey/CACKey_0.7.8_Slandup.pkg.tar.gz | tar -xzf
 sudo installer -pkg  CACKey_0.7.8_Slandup.pkg -target /Volumes/Macintosh\ HD
 rm -f CACKey_0.7.8_Slandup.pkg
+rm -f CACKey_0.7.8_Slandup.pkg.tar.gz
 
 # Install DOD CAs
 curl -O https://militarycac.com/maccerts/AllCerts.zip
