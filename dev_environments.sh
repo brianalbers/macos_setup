@@ -49,8 +49,8 @@ tar xf ~/.ssh/certs.tar -C ~/.ssh
 rm -f ~/.ssh certs.tar
 rm -f ~/.ssh certs.tar.aes
 
-ssh-keygen -t rsa -C "$(hostname)"
+ssh-keygen -t rsa -C "$(hostname)" -f "$HOME/.ssh/id_rsa"
 cat ~/.ssh/id_rsa.pub | echo
-cp dotfiles/ssh_config ~/.ssh/.ssh_config
+cp -f $MACOS_SETUP_DIR/dotfiles/ssh_config ~/.ssh/.ssh_config
 
 return 1
