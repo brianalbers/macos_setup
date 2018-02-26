@@ -49,7 +49,7 @@ tar xf ~/.ssh/certs.tar -C ~/.ssh
 rm -f ~/.ssh/certs.tar
 rm -f ~/.ssh/certs.tar.aes
 
-if [ ! -f "$HOME/.ssh/id_rsa.pub"]; then
+if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
   ssh-keygen -t rsa -C "$(hostname)" -f "$HOME/.ssh/id_rsa"
 fi
 cat ~/.ssh/id_rsa.pub | echo
