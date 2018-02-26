@@ -15,6 +15,7 @@ mkdir $HOME/dev/projects
 cd $HOME/dev/projects/
 git clone https://github.com/brianalbers/macos_setup.git
 export MACOS_SETUP_DIR=$HOME/dev/projects/macos_setup
+cd macos_setup
 
 # Install Home-brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -26,10 +27,10 @@ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
 done
-cp -f dotfiles/zpreztorc ~/.zpreztorc
+cp -f $MACOS_SETUP_DIR/dotfiles/zpreztorc ~/.zpreztorc
 
 # Move gitconfig to home folder
-cp -f dotfiles/gitconfig ~/.gitconfig
+cp -f $MACOS_SETUP_DIR/dotfiles/gitconfig ~/.gitconfig
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
