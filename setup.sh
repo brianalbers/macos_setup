@@ -1,12 +1,19 @@
 #!/bin/zsh
 
 # https://github.com/mathiasbynens/dotfiles
+# https://github.com/Stratus3D/dotfiles
 
 #Terminal
 # Set zsh as default shell
 chsh -s $(which zsh)
 # Install xcode dev tools
 xcode-select --install
+
+# Clone macos_setup project from github
+mkdir $HOME/dev
+mkdir $HOME/dev/projects
+git clone https://github.com/brianalbers/macos_setup.git $HOME/dev/projects
+cd $HOME/dev/projects
 
 # Install Home-brew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

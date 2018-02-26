@@ -1,5 +1,4 @@
-# macos_setup
+#### Installation Steps
+1. Run `setup.sh`
 
-Step 1. Run macos.sh
-Step 2. Run setup.sh
-Step 3. Run dev_environments.sh
+        curl -s https://github.com/brianalbers/macos_setup/blob/master/setup.sh | bash 2>&1 | tee ~/setup.log
