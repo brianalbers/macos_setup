@@ -43,8 +43,6 @@ brew cask install goland
 
 # Install SourceTree
 brew cask install sourcetree
-mkdir dev
-mkdir dev/projects
 
 # Install AWS tools
 brew install s3cmd
