@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 ###############################################################################
 # Reference
@@ -8,12 +8,20 @@
 # https://github.com/herrbischoff/awesome-macos-command-line#transparency
 ###############################################################################
 
-./scripts/base.sh
+# Install xcode dev tools for git
+xcode-select --install
 
-sudo ./scripts/citrix_and_cac.sh
+# Clone macos_setup project from github
+mkdir $HOME/dev
+mkdir $HOME/dev/projects
+cd $HOME/dev/projects/
+git clone https://github.com/brianalbers/macos_setup.git
 
-./scripts/macos.sh
-
-./scripts/dev_environments.sh
-
-./scripts/dock.sh
+# Execute additional scripts from the cloned repo
+cd macos_setup/scripts
+./base.sh
+./terminal.sh
+./citrix_and_cac.sh
+./dev_environments.sh
+./macos.sh
+./dock.sh
