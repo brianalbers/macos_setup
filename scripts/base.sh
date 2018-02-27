@@ -14,8 +14,9 @@ else
     brew update
 fi
 
-# Move gitconfig to home folder
+# Move git config files to home folder
 cp -f ../dotfiles/gitconfig ~/.gitconfig
+cp -f ../dotfiles/gitignore_global ~/.gitignore_global
 
 # Install Mac App store CLI to install Memory Clean 2
 brew install mas
