@@ -25,6 +25,9 @@ open -a Docker
 hdiutil detach /dev/disk2
 rm -f Docker.dmg
 
+# Install Pivotal Cloud Foundry CLI
+brew install cloudfoundry/tap/cf-cli
+
 # Install Webstorm
 brew cask install jetbrains-toolbox
 brew cask install webstorm
