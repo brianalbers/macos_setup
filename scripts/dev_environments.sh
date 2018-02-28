@@ -50,6 +50,7 @@ brew cask install sourcetree
 # Install AWS tools
 brew install s3cmd
 brew install awscli
+brew cask install aws-vault
 
 # Setup ssh
 # Encrypt: openssl enc -aes-256-cbc -md md5 -salt -in configurerc.sh -out configurerc.sh.aes

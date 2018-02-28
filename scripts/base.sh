@@ -26,6 +26,12 @@ brew install mas
 mas signin brian@brianalbers.com
 mas install 1114591412
 
+# Install Disk Doctor: System Cleaner
+mas install 455970963
+
+# Install BetterSnapTool (1.8)
+mas install 417375580
+
 # Install Apple Office Applications
 mas install 409203825  # Numbers
 mas install 409183694  # Keynote
