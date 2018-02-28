@@ -4,12 +4,12 @@
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
-
 # Enable Dragging - Three finger drag
 # Accessibility > Mouse and Trackpad > Trackpad Options
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerSwipeGesture -int 1
+defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
 defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
 
@@ -228,9 +228,7 @@ defaults write com.apple.screencapture location ~/Pictures
 ###############################################################################
 # Set screensaver																															#
 ###############################################################################
-cp -f ./wallpaper/aero_dark_orange_13-wallpaper-2560x1440.jpg ~/Pictures/.
-cp -f ./wallpaper/minimalist_orange-wallpaper-2560x1440.jpg ~/Pictures/.
-
+cp -f ../wallpaper/*.jpg ~/Pictures/
 sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db <<EOS
 	delete from data;
 	insert into data values ("/Library/Desktop Pictures/Solid Colors"), ("~/Pictures"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg"), ("~/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg");
@@ -239,7 +237,7 @@ EOS
 ###############################################################################
 # Set wallpaper																																#
 ###############################################################################
-cp -rf "./wallpaper/Epoch Flip Clock.saver" /Users/balbers/Library/Screen\ Savers
+cp -rf "../wallpaper/Epoch Flip Clock.saver" /Users/balbers/Library/Screen\ Savers
 defaults -currentHost write com.apple.screensaver modulePath -string "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
 
 ###############################################################################

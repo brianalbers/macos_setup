@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Install or update Home-brew
+which -s brew
+if [[ $? != 0 ]] ; then
+    # Install Homebrew
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew doctor
+else
+    brew update
+fi
+
 # Install nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 source ~/.zshrc
@@ -36,8 +46,6 @@ brew cask install goland
 
 # Install SourceTree
 brew cask install sourcetree
-mkdir dev
-mkdir dev/projects
 
 # Install AWS tools
 brew install s3cmd
@@ -49,7 +57,7 @@ if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
   ssh-keygen -t rsa -C "$(hostname)" -f "$HOME/.ssh/id_rsa"
 fi
 cat ~/.ssh/id_rsa.pub | echo
-cp -f $MACOS_SETUP_DIR/dotfiles/ssh_config ~/.ssh/.ssh_config
+cp -f ../dotfiles/ssh_config ~/.ssh/.ssh_config
 
 cp ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/BITS/certs.tar.aes ~/.ssh/.
 echo "1.1(upper)(evens)2bangs"
