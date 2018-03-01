@@ -30,6 +30,10 @@ sudo systemsetup -setdisplaysleep 15
 sudo systemsetup -setharddisksleep 240
 sudo systemsetup -setwakeonnetworkaccess on
 
+# Add top menu bar items
+open '/System/Library/CoreServices/Menu Extras/Bluetooth.menu'
+open '/System/Library/CoreServices/Menu Extras/Volume.menu'
+
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
@@ -224,10 +228,10 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 #        - Uncheck ‘Show warning before changing an extension
 
 # Don't show any special icons on desktop.
-defaults write ShowExternalHardDrivesOnDesktop -bool false
-defaults write ShowHardDrivesOnDesktop -bool false
-defaults write ShowRemovableMediaOnDesktop -bool false
-defaults write ShowMountedServersOnDesktop -bool false
+defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
+defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder FXICloudDriveEnabled -bool true
 defaults write com.apple.screencapture location ~/Pictures
 
