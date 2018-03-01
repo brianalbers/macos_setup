@@ -24,6 +24,12 @@ defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
+# Energy Saver Settings
+sudo systemsetup -setcomputersleep Never
+sudo systemsetup -setdisplaysleep 15
+sudo systemsetup -setharddisksleep 240
+sudo systemsetup -setwakeonnetworkaccess on
+
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3

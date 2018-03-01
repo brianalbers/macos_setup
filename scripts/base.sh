@@ -31,6 +31,7 @@ mas install 455970963
 
 # Install BetterSnapTool (1.8)
 mas install 417375580
+cp ../dotfiles/com.hegenberg.BetterSnapTool.plist ~/Library/Preferences
 
 # Install Apple Office Applications
 mas install 409203825  # Numbers
