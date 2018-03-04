@@ -27,7 +27,7 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Energy Saver Settings
 sudo systemsetup -setcomputersleep Never
 sudo systemsetup -setdisplaysleep 15
-sudo systemsetup -setharddisksleep 240
+sudo systemsetup -setharddisksleep 180
 sudo systemsetup -setwakeonnetworkaccess on
 
 # Add top menu bar items
@@ -239,10 +239,16 @@ defaults write com.apple.screencapture location ~/Pictures
 # Set screensaver																															#
 ###############################################################################
 cp -f ../wallpaper/*.jpg ~/Pictures/
+
+model_name=$(sysctl hw.model)
+if [[ $model_name = *"MacBookPro"* ]]; then
+	m wallpaper ~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg
+else
 sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db <<EOS
 	delete from data;
 	insert into data values ("/Library/Desktop Pictures/Solid Colors"), ("~/Pictures"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg"), ("~/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg");
 EOS
+fi
 
 ###############################################################################
 # Set wallpaper																																#
