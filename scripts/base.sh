@@ -95,3 +95,9 @@ brew cleanup
 
 # Remove cask cruft
 brew cask cleanup
+
+# Set hostname based on user input
+echo "Machine name current settings: "
+echo "Please set the computername, hostname, localhostname and netbiosname (Leave blank for no change): "
+read hostname
+m hostname $hostname
