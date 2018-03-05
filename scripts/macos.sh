@@ -4,6 +4,11 @@
 # settings we’re about to change
 osascript -e 'tell application "System Preferences" to quit'
 
+
+###############################################################################
+# Trackpad				                                                            #
+###############################################################################
+
 # Enable Dragging - Three finger drag
 # Accessibility > Mouse and Trackpad > Trackpad Options
 defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
@@ -18,17 +23,12 @@ defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.0
 
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
-# Energy Saver Settings
-sudo systemsetup -setcomputersleep Never
-sudo systemsetup -setdisplaysleep 15
-sudo systemsetup -setharddisksleep 180
-sudo systemsetup -setwakeonnetworkaccess on
 
 # Add top menu bar items
 open '/System/Library/CoreServices/Menu Extras/Bluetooth.menu'
@@ -47,6 +47,8 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
+mkdir ~/Pictures/Screen
+defaults write com.apple.screencapture location ~/Pictures/ScreenCapture
 
 # Keep folders on top when sorting by name
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
@@ -120,6 +122,18 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
+
+###############################################################################
+# Power 				                                                              #
+###############################################################################
+
+# Energy Saver Settings
+sudo systemsetup -setcomputersleep Never
+sudo systemsetup -setdisplaysleep 15
+sudo systemsetup -setharddisksleep 180
+sudo systemsetup -setwakeonnetworkaccess on
+
+
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
@@ -160,6 +174,7 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Enable “Do Not Track”
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
 
+
 ###############################################################################
 # Activity Monitor                                                            #
 ###############################################################################
@@ -183,6 +198,7 @@ defaults write com.apple.DiskUtility advanced-image-options -bool true
 
 # Auto-play videos when opened with QuickTime Player
 defaults write com.apple.QuickTimePlayerX MGPlayMovieOnOpen -bool true
+
 
 ###############################################################################
 # Mac App Store                                                               #
@@ -233,13 +249,14 @@ defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder FXICloudDriveEnabled -bool true
-defaults write com.apple.screencapture location ~/Pictures
+
 
 ###############################################################################
-# Set screensaver																															#
+# Desktop																															#
 ###############################################################################
+
+# Set screensaver
 cp -f ../wallpaper/*.jpg ~/Pictures/
-
 model_name=$(sysctl hw.model)
 if [[ $model_name = *"MacBookPro"* ]]; then
 	m wallpaper ~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg
@@ -250,11 +267,19 @@ sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db <<EOS
 EOS
 fi
 
-###############################################################################
-# Set wallpaper																																#
-###############################################################################
+# Set wallpaper
 cp -rf "../wallpaper/Epoch Flip Clock.saver" /Users/balbers/Library/Screen\ Savers
 defaults -currentHost write com.apple.screensaver modulePath -string "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
+
+
+###############################################################################
+# Security																																		#
+###############################################################################
+
+# Enable firewall and block all incoming connections
+# Due to new SIP features in High Sierra, this command requires a machine Restart
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 2
+
 
 ###############################################################################
 # Kill affected applications                                                  #
