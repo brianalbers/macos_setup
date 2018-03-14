@@ -11,6 +11,7 @@ dockutil --add /Applications/System\ Preferences.app
 dockutil --add /Applications/Reminders.app
 dockutil --add /Applications/Calendar.app
 dockutil --add /Applications/Notes.app
+dockutil --add /Applications/Spotify.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Safari.app
 dockutil --add /Applications/Google\ Chrome.app
@@ -26,7 +27,6 @@ dockutil --add /Applications/PyCharm\ CE.app
 dockutil --add /Applications/Webstorm.app
 dockutil --add /Applications/VMware\ Fusion.app
 dockutil --add '' --type spacer --section apps
-dockutil --add /Applications/Spotify.app --section others
 
 
 defaults write com.apple.dock tilesize -int 40
