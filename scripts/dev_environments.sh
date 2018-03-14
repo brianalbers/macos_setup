@@ -58,7 +58,7 @@ if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
   ssh-keygen -t rsa -C "$(hostname)" -f "$HOME/.ssh/id_rsa"
 fi
 cat ~/.ssh/id_rsa.pub | echo
-cp -f ../dotfiles/ssh_config ~/.ssh/.ssh_config
+cp -f ../dotfiles/ssh_config ~/.ssh/config
 
 cp ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/BITS/certs.tar.aes ~/.ssh/.
 echo "1.1(upper)(evens)2bangs"
