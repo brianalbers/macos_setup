@@ -28,7 +28,7 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
 # Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 120
 
 # Add top menu bar items
 open '/System/Library/CoreServices/Menu Extras/Bluetooth.menu'
