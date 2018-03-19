@@ -11,9 +11,6 @@ fi
 # http://akbaribrahim.com/managing-multiple-python-versions-with-pyenv/
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# Add golang to path
-export PATH=$PATH:/usr/local/go/bin
-
 # Add yarn to path
 export PATH=$PATH:/usr/local/Cellar/yarn/1.3.2/bin/yarn
 
@@ -28,3 +25,27 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Create alias for quick access to projecs directory
 alias projects='cd ~/dev/projects'
+
+# Configure golang
+export GOPATH="${HOME}/go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Configure history
+# set history size
+export HISTSIZE=15000
+
+# save history after logout
+export SAVEHIST=15000
+
+# history file
+export HISTFILE=~/.zhistory
+
+# append into history file
+setopt INC_APPEND_HISTORY
+
+# save only one command if 2 common are same and consistent
+setopt HIST_IGNORE_DUPS
+
+# add timestamp for each entry
+setopt EXTENDED_HISTORY
