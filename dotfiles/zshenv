@@ -27,5 +27,25 @@ export PATH="$PATH:$HOME/.rvm/bin"
 alias projects='cd ~/dev/projects'
 
 # Configure golang
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH="${HOME}/go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Configure history
+# set history size
+export HISTSIZE=15000
+
+# save history after logout
+export SAVEHIST=15000
+
+# history file
+export HISTFILE=~/.zhistory
+
+# append into history file
+setopt INC_APPEND_HISTORY
+
+# save only one command if 2 common are same and consistent
+setopt HIST_IGNORE_DUPS
+
+# add timestamp for each entry
+setopt EXTENDED_HISTORY

@@ -28,8 +28,12 @@ brew install gnupg gnupg2
 curl -sSL https://get.rvm.io | bash -s stable
 
 # Install golang
+export GOPATH="${HOME}/go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+test -d "${GOPATH}" || mkdir "${GOPATH}"
+test -d "${GOPATH}/src/github.com" || mkdir -p "${GOPATH}/src/github.com"
 brew install go
-mkdir $HOME/go
 brew install hg bzr
 
 # Install Docker for MacOS
