@@ -27,6 +27,11 @@ brew install gnupg gnupg2
 # Install RVM and latest stable version of Ruby
 curl -sSL https://get.rvm.io | bash -s stable
 
+# Install golang
+brew install go
+mkdir $HOME/go
+brew install hg bzr
+
 # Install Docker for MacOS
 curl -O https://download.docker.com/mac/stable/Docker.dmg
 hdiutil attach Docker.dmg
