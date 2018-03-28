@@ -31,8 +31,15 @@ Host *
   IdentityFile /Users/balbers/.ssh/id_rsa
   IdentityFile /Users/balbers/.ssh/geointservices.pem
   # IgnoreUnknown AddKeysToAgent
-  UseKeychain yes
+  # UseKeychain yes
   AddKeysToAgent yes
   AddressFamily inet
   ForwardX11 yes
   ForwardAgent yes
+Host p3
+  HostName bastion-p3.geointservices.io
+  User balbers
+  ChallengeResponseAuthentication no
+  PasswordAuthentication no
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_rsa
