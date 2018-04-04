@@ -22,6 +22,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 cp -f ../dotfiles/zpreztorc ~/.zpreztorc
 cp -f ../dotfiles/zshenv ~/.zshenv
+cp -f ../dotfiles/zshrc ~/.zshrc
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -56,3 +57,9 @@ brew install zsh-completions
 # Install iterm2
 brew cask install iterm2
 cp -f ../dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences
+
+# Install autojump
+# See https://olivierlacan.com/posts/cd-is-wasting-your-time/ for details
+# Also see `[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh` in .zshrc file
+brew install autojump
+
