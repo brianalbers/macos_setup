@@ -52,6 +52,7 @@ brew cask install jetbrains-toolbox
 brew cask install webstorm
 brew cask install pycharm-ce
 brew cask install goland
+brew cask install visual-studio-code
 
 # Install SourceTree
 brew cask install sourcetree
