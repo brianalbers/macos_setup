@@ -87,6 +87,9 @@ open /Applications/VMware\ Fusion.app
 #export serial=""
 #/Applications/VMware\ Fusion.app/Contents/Library/Initialize\ VMware\ Fusion.tool set "" "" ${serial}
 
+# Install VMWare Horizon Client for accessing CACI VDI
+brew cask install vmware-horizon-client
+
 # Commented out due to license limitations of 2 computers
 #brew cask install evernote
 
