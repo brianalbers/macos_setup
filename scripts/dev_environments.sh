@@ -48,13 +48,16 @@ rm -f Docker.dmg
 brew install cloudfoundry/tap/cf-cli
 
 # Install Webstorm
-brew cask install jetbrains-toolbox
-brew cask install webstorm
-brew cask install pycharm-ce
-brew cask install goland
+# brew cask install jetbrains-toolbox
+# brew cask install webstorm
+# brew cask install pycharm-ce
+# brew cask install goland
 
 # Install Visual Studio Code
 brew cask install visual-studio-code
+code --install-extension loganarnett.lambda-snippets
+code --install-extension waderyan.nodejs-extension-pack
+code --install-extension ms-python.python
 
 # Install SourceTree
 brew cask install sourcetree
