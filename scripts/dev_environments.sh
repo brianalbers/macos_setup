@@ -21,6 +21,9 @@ nvm use v6.11.1
 # Install yarn
 brew install yarn --without-node
 
+# Install python
+brew install python@2
+
 # gpg2 is required for installing RVM
 brew install gnupg gnupg2
 
@@ -66,6 +69,10 @@ brew cask install sourcetree
 brew install s3cmd
 brew install awscli
 brew cask install aws-vault
+
+# Install AWS SAM
+# please not pip should have automatically been installed with python
+pip install --user aws-sam-cli
 
 # Setup ssh
 # Encrypt: openssl enc -aes-256-cbc -md md5 -salt -in configurerc.sh -out configurerc.sh.aes
