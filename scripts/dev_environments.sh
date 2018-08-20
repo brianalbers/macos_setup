@@ -21,6 +21,9 @@ nvm use v6.11.1
 # Install yarn
 brew install yarn --without-node
 
+# Install python
+brew install python@2
+
 # gpg2 is required for installing RVM
 brew install gnupg gnupg2
 
@@ -48,12 +51,12 @@ rm -f Docker.dmg
 brew install cloudfoundry/tap/cf-cli
 
 # Install Webstorm
-brew cask install jetbrains-toolbox
-brew cask install webstorm
-brew cask install pycharm-ce
-brew cask install goland
+# brew cask install jetbrains-toolbox
+# brew cask install webstorm
+# brew cask install pycharm-ce
+# brew cask install goland
 
-# Install VS Code and extensions
+# Install Visual Studio Code
 brew cask install visual-studio-code
 code --install-extension msjsdiag.debugger-for-chrome
 code --install-extension PeterJausovec.vscode-docker
@@ -73,6 +76,10 @@ brew cask install sourcetree
 brew install s3cmd
 brew install awscli
 brew cask install aws-vault
+
+# Install AWS SAM
+# please not pip should have automatically been installed with python
+pip install --user aws-sam-cli
 
 # Setup ssh
 # Encrypt: openssl enc -aes-256-cbc -md md5 -salt -in configurerc.sh -out configurerc.sh.aes
