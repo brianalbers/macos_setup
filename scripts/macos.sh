@@ -263,7 +263,7 @@ if [[ $model_name = *"MacBookPro"* ]]; then
 else
 sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db <<EOS
 	delete from data;
-	insert into data values ("/Library/Desktop Pictures/Solid Colors"), ("~/Pictures"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg"), ("~/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg");
+	insert into data values ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg");
 EOS
 fi
 
