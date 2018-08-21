@@ -261,10 +261,7 @@ model_name=$(sysctl hw.model)
 if [[ $model_name = *"MacBookPro"* ]]; then
 	m wallpaper ~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg
 else
-sqlite3 ~/Library/Application\ Support/Dock/desktoppicture.db <<EOS
-	delete from data;
-	insert into data values ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg"), ("/Users/balbers/Pictures/aero_dark_orange_13-wallpaper-2560x1440.jpg");
-EOS
+	osascript -e 'tell application "System Events" to set picture of (reference to every desktop) to "~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg"'
 fi
 
 # Set wallpaper
