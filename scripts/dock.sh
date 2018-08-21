@@ -9,7 +9,7 @@ dockutil --remove all
 
 dockutil --add /Applications/System\ Preferences.app
 dockutil --add /Applications/Utilities/Keychain\ Access.app
-dockutil --add /Applications/Utilities/Grab.app
+#dockutil --add /Applications/Utilities/Grab.app
 #dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Reminders.app
 dockutil --add /Applications/Calendar.app

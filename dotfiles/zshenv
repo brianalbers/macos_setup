@@ -28,7 +28,7 @@ alias proj='cd ~/dev/projects'
 
 # Configure golang
 export GOPATH="${HOME}/go"
-export GOROOT="$(brew --prefix golang)/libexec"
+export GOROOT="$(/usr/local/bin/brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Configure AWS SAM
