@@ -57,6 +57,7 @@ brew install zsh-completions
 # Install iterm2
 brew cask install iterm2
 cp -f ../dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences
+curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 
 # Install autojump
 # See https://olivierlacan.com/posts/cd-is-wasting-your-time/ for details
