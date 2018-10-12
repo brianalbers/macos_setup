@@ -23,6 +23,7 @@ done
 cp -f ../dotfiles/zpreztorc ~/.zpreztorc
 cp -f ../dotfiles/zshenv ~/.zshenv
 cp -f ../dotfiles/zshrc ~/.zshrc
+cp -f proj.sh /usr/local/bin/. 
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -63,4 +64,3 @@ curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.
 # See https://olivierlacan.com/posts/cd-is-wasting-your-time/ for details
 # Also see `[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh` in .zshrc file
 brew install autojump
-

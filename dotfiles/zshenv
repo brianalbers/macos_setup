@@ -23,8 +23,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # This loads nvm bash_completion
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-# Create alias for quick access to projecs directory
-alias proj='cd ~/dev/projects'
+# Create a shortcut for quick access to projecs directory
+source /usr/local/bin/proj.sh
 
 # Configure golang
 export GOPATH="${HOME}/go"
