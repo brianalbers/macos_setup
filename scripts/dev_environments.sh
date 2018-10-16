@@ -27,6 +27,9 @@ brew install python@2
 # gpg2 is required for installing RVM
 brew install gnupg gnupg2
 
+# install java 8
+brew cask install java8
+
 # Install RVM and latest stable version of Ruby
 curl -sSL https://get.rvm.io | bash -s stable
 
