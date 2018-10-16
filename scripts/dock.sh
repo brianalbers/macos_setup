@@ -22,6 +22,7 @@ dockutil --add /Applications/Firefox\ Developer\ Edition.app
 dockutil --add /Applications/Slack.app
 dockutil --add /Applications/Rocket.Chat+.app
 dockutil --add /Applications/Messages.app
+dockutil --add /Applications/VMware\ Horizon\ Client.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/iTerm.app
 dockutil --add /Applications/Sourcetree.app
@@ -31,7 +32,7 @@ dockutil --add /Applications/PyCharm\ CE.app
 dockutil --add /Applications/GoLand.app
 dockutil --add /Applications/Visual\ Studio\ Code.app
 dockutil --add /Applications/VMware\ Fusion.app
-dockutil --add '' --type spacer --section apps
+# dockutil --add '' --type spacer --section apps
 
 
 defaults write com.apple.dock tilesize -int 40

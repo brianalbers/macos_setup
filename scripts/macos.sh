@@ -100,6 +100,9 @@ chflags nohidden ~/Library
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
 
+# Enable Dark mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
 # Hot corners
 # Possible values:
 #  0: no-op
