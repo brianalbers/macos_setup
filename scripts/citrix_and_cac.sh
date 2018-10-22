@@ -30,7 +30,7 @@ printf "\nDone Installing DoD CAs\n"
 
 # Install Citrix Receiver
 echo "Installing Citrix Receiver"
-brew cask install citrix-receiver
+brew cask install citrix-workspace
 defaults write com.citrix.receiver.nomas PKCS11ModulePath -string /Library/CACKey/libcackey.dylib
 defaults write com.citrix.receiver.nomas PKCS11ModuleEnabled YES
 echo "Done Installing Citrix Receiver"
