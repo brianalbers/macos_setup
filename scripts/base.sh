@@ -81,6 +81,9 @@ brew cask install atom
 # Install Spotify for music
 brew cask install spotify
 
+# Install Signal
+brew cask install signal
+
 # Install VMware Fusion
 brew cask install vmware-fusion
 open /Applications/VMware\ Fusion.app
