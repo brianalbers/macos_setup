@@ -131,10 +131,15 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 ###############################################################################
 
 # Energy Saver Settings
-sudo systemsetup -setcomputersleep Never
+sudo systemsetup -setcomputersleep 180
 sudo systemsetup -setdisplaysleep 15
 sudo systemsetup -setharddisksleep 180
 sudo systemsetup -setwakeonnetworkaccess on
+sudo pmset -a displaysleep 15
+sudo pmset -b disksleep 60
+sudo pmset -b powernap 0
+sudo pmset -c disksleep 180
+sudo pmset -c powernap 1
 
 
 ###############################################################################
