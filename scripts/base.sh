@@ -65,6 +65,12 @@ brew tap caskroom/cask
 brew cask install slack
 open /Applications/Slack.app
 
+# Install ExpressVPN
+brew cask install expressvpn
+
+# Install XFINITY hotspot certs
+open /Users/balbers/Library/Mobile\ Documents/com\~apple\~CloudDocs/XFINITY.mobileconfig
+
 # Install rocket.chat
 brew cask install rocket-chat
 open /Applications/Rocket.chat+.app
