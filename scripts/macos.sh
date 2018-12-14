@@ -47,7 +47,7 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
-mkdir ~/Pictures/Screen
+mkdir ~/Pictures/ScreenCapture
 defaults write com.apple.screencapture location ~/Pictures/ScreenCapture
 
 # Keep folders on top when sorting by name
