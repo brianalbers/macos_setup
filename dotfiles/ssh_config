@@ -43,3 +43,17 @@ Host p3
   PasswordAuthentication no
   ForwardAgent yes
   IdentityFile ~/.ssh/id_rsa
+Host uas
+  HostName bastion1-uas.dev.nga-geoworks.com
+  User balbers
+  ChallengeResponseAuthentication no
+  PasswordAuthentication no
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_rsa
+Host eds
+  HostName bastion1-eds.dev.nga-geoworks.com
+  User balbers
+  ChallengeResponseAuthentication no 
+  PasswordAuthentication no
+  ForwardAgent yes
+  IdentityFile ~/.ssh/id_rsa
