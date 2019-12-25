@@ -20,10 +20,8 @@ dockutil --add /Applications/Safari.app
 dockutil --add /Applications/Google\ Chrome.app
 dockutil --add /Applications/Firefox\ Developer\ Edition.app
 dockutil --add /Applications/Slack.app
-dockutil --add /Applications/Rocket.Chat.app
 dockutil --add /Applications/Messages.app
 dockutil --add /Applications/Signal.app
-dockutil --add /Applications/VMware\ Horizon\ Client.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/iTerm.app
 dockutil --add /Applications/Sourcetree.app
