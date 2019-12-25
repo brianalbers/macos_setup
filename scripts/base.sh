@@ -75,7 +75,7 @@ open /Users/balbers/Library/Mobile\ Documents/com\~apple\~CloudDocs/XFINITY.mobi
 brew cask install google-chrome
 
 # Install Firefox Developer Edition
-brew cask install caskroom/versions/firefox-developer-edition
+brew cask install homebrew/cask-versions/firefox-developer-edition
 
 # Install Atom
 brew cask install atom
