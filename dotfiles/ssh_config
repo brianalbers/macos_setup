@@ -5,21 +5,6 @@ Host jenkins
 Host nat
   User centos
   HostName ec2-52-5-139-57.compute-1.amazonaws.com
-Host sl*jenkins.devops.geointservices.io sl*.devops sl*
-  User %r
-#  ProxyCommand ssh -W %h:%p %r@jenkins.devops.geointservices.io
-  ProxyCommand ssh -W %h:%p %r@lzalpha.geointservices.io
-  # ChallengeResponseAuthentication no
-  PasswordAuthentication no
-  ForwardAgent yes
-Host lzalpha
-  HostName lzalpha.geointservices.io
-  User centos
-  ChallengeResponseAuthentication no
-  PasswordAuthentication no
-  ForwardAgent yes
-host !lz1a* !gitlab* *.geointservices.io
-    proxycommand ssh lz1a.geointservices.io -W %h:%p
 Host lz
   HostName lz1a.geointservices.io
   User balbers
@@ -36,24 +21,3 @@ Host *
   AddressFamily inet
   ForwardX11 yes
   ForwardAgent yes
-Host p3
-  HostName bastion-p3.geointservices.io
-  User balbers
-  ChallengeResponseAuthentication no
-  PasswordAuthentication no
-  ForwardAgent yes
-  IdentityFile ~/.ssh/id_rsa
-Host uas
-  HostName bastion1-uas.dev.nga-geoworks.com
-  User balbers
-  ChallengeResponseAuthentication no
-  PasswordAuthentication no
-  ForwardAgent yes
-  IdentityFile ~/.ssh/id_rsa
-Host eds
-  HostName bastion1-eds.dev.nga-geoworks.com
-  User balbers
-  ChallengeResponseAuthentication no 
-  PasswordAuthentication no
-  ForwardAgent yes
-  IdentityFile ~/.ssh/id_rsa
