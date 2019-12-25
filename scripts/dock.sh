@@ -7,14 +7,14 @@ brew install dockutil
 ###############################################################################
 dockutil --remove all
 
-dockutil --add /Applications/System\ Preferences.app
-dockutil --add /Applications/Utilities/Keychain\ Access.app
+dockutil --add /System/Applications/System\ Preferences.app
+dockutil --add /System/Applications/Utilities/Keychain\ Access.app
 #dockutil --add /Applications/Utilities/Grab.app
 #dockutil --add '' --type spacer --section apps
-dockutil --add /Applications/Reminders.app
-dockutil --add /Applications/Calendar.app
-dockutil --add /Applications/Notes.app
-dockutil --add /Applications/Music.app
+dockutil --add /System/Applications/Reminders.app
+dockutil --add /System/Applications/Calendar.app
+dockutil --add /System/Applications/Notes.app
+dockutil --add /System/Applications/Music.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Safari.app
 dockutil --add /Applications/Google\ Chrome.app
