@@ -31,7 +31,6 @@ git clone https://github.com/brianalbers/macos_setup.git
 cd macos_setup/scripts
 ./base.sh
 ./terminal.sh
-./citrix_and_cac.sh
 ./dev_environments.sh
 ./macos.sh
 ./dock.sh
