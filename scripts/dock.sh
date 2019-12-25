@@ -14,7 +14,7 @@ dockutil --add /Applications/Utilities/Keychain\ Access.app
 dockutil --add /Applications/Reminders.app
 dockutil --add /Applications/Calendar.app
 dockutil --add /Applications/Notes.app
-dockutil --add /Applications/Spotify.app
+dockutil --add /Applications/Music.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Safari.app
 dockutil --add /Applications/Google\ Chrome.app
