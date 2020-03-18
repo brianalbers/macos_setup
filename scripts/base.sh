@@ -39,7 +39,7 @@ mas install 409183694  # Keynote
 mas install 409201541  # Pages
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi
+brew install vim
 brew install grep
 brew install openssh
 

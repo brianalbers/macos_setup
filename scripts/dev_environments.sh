@@ -50,9 +50,6 @@ open -a Docker
 hdiutil detach /dev/disk2
 rm -f Docker.dmg
 
-# Install Pivotal Cloud Foundry CLI
-brew install cloudfoundry/tap/cf-cli
-
 # Install Webstorm
 # brew cask install jetbrains-toolbox
 brew cask install webstorm
@@ -91,10 +88,3 @@ if [ ! -f "$HOME/.ssh/id_rsa.pub" ]; then
 fi
 cat ~/.ssh/id_rsa.pub | echo
 cp -f ../dotfiles/ssh_config ~/.ssh/config
-
-cp ~/Library/Mobile\ Documents/com\~apple\~CloudDocs/BITS/certs.tar.aes ~/.ssh/.
-echo "1.1(upper)(evens)2bangs"
-openssl enc -aes-256-cbc -md md5 -d -in ~/.ssh/certs.tar.aes -out ~/.ssh/certs.tar
-tar xf ~/.ssh/certs.tar -C ~/.ssh
-rm -f ~/.ssh/certs.tar
-rm -f ~/.ssh/certs.tar.aes
