@@ -75,7 +75,13 @@ open /Users/balbers/Library/Mobile\ Documents/com\~apple\~CloudDocs/XFINITY.mobi
 brew cask install google-chrome
 
 # Install Firefox Developer Edition
-brew cask install homebrew/cask-versions/firefox-developer-edition
+brew cask install homebrew/cask-versions/firefox-developer-edition\
+
+# Install Opera Browser
+brew cask install opera
+
+# Install 1Password
+brew cask install 1Password
 
 # Install Atom
 brew cask install atom
@@ -94,6 +100,12 @@ open /Applications/VMware\ Fusion.app
 
 # Commented out due to license limitations of 2 computers
 #brew cask install evernote
+
+# Install 1Password
+brew cask install 1password
+
+# Install Authy
+brew cask install authy
 
 # Remove brew cruft
 brew cleanup
