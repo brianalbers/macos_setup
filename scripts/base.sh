@@ -77,8 +77,8 @@ brew cask install google-chrome
 # Install Firefox Developer Edition
 brew cask install homebrew/cask-versions/firefox-developer-edition\
 
-# Install Opera Browser
-brew cask install opera
+# Install Brave Browser
+brew cask install brave-browser
 
 # Install 1Password
 brew cask install 1Password

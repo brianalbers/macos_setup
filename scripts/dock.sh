@@ -16,7 +16,7 @@ dockutil --add /System/Applications/Calendar.app
 dockutil --add /System/Applications/Notes.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Safari.app
-dockutil --add /Applications/Google\ Chrome.app
+dockutil --add /Applications/Brave\ Browser.app
 dockutil --add /Applications/Firefox\ Developer\ Edition.app
 dockutil --add /Applications/Slack.app
 dockutil --add /System/Applications/Messages.app
