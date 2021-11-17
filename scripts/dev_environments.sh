@@ -1,25 +1,19 @@
 #!/bin/bash
 
+echo "############################################################"
+echo "Starting dev_environments.sh"
+
 # Install or update Home-brew
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "Installing Homebrew"
+    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor
 else
+    echo "Updating Homebrew"
     brew update
 fi
-
-# Install nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-source ~/.zshrc
-
-# Install node
-nvm install v6.11.1
-nvm use v6.11.1
-
-# Install yarn
-brew install yarn --without-node
 
 # Install python
 brew install python@2
@@ -28,7 +22,7 @@ brew install python@2
 brew install gnupg gnupg2
 
 # install java 8
-brew cask install java8
+brew install --cask java8
 
 # Install RVM and latest stable version of Ruby
 curl -sSL https://get.rvm.io | bash -s stable
@@ -51,12 +45,12 @@ hdiutil detach /dev/disk2
 rm -f Docker.dmg
 
 # Install 
-brew cask install jetbrains-toolbox 
+brew install --cask jetbrains-toolbox 
 
 # Install AWS tools
 brew install s3cmd
 brew install awscli
-brew cask install aws-vault
+brew install --cask aws-vault
 
 # Install AWS SAM
 # please not pip should have automatically been installed with python

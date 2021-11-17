@@ -4,6 +4,9 @@
 # https://github.com/Stratus3D/dotfiles
 # https://github.com/herrbischoff/awesome-macos-command-line#transparency
 
+echo "############################################################"
+echo "Starting base.sh"
+
 # Install or update Home-brew
 which -s brew
 if [[ $? != 0 ]] ; then
@@ -16,7 +19,6 @@ else
     brew update
 fi
 
-exit 1;
 # Move git config files to home folder
 cp -f ../dotfiles/gitconfig ~/.gitconfig
 cp -f ../dotfiles/gitignore_global ~/.gitignore_global
@@ -53,52 +55,48 @@ brew install m-cli
 brew install openssl
 
 # Install iStat menu bar - se
-brew cask install istat-menus
+brew install --cask  istat-menus
 open /Applications/iStat\ Menus.app
 
 # Install Homebrew Cask
-brew tap caskroom/cask
+#brew tap caskroom/cask
 
 # Install Slack
-brew cask install slack
-open /Applications/Slack.app
+brew install --cask slack
 
 # Install ExpressVPN
-brew cask install expressvpn
+brew install --cask expressvpn
 
 # Install Google Chrome
-brew cask install google-chrome
+brew install --cask google-chrome
 
 # Install Firefox Developer Edition
-brew cask install homebrew/cask-versions/firefox-developer-edition\
+brew install --cask homebrew/cask-versions/firefox-developer-edition\
 
 # Install Brave Browser
-brew cask install brave-browser
+brew install --cask brave-browser
 
 # Install 1Password
-brew cask install 1Password
+brew install --cask 1Password
 
 # Install Atom
-brew cask install atom
+brew install --cask atom
 
 # Install Spotify for music
-brew cask install spotify
+brew install --cask spotify
 
 # Install Signal
-brew cask install signal
-
-# Install VMware Fusion
-brew cask install vmware-fusion
-open /Applications/VMware\ Fusion.app
-#export serial=""
-#/Applications/VMware\ Fusion.app/Contents/Library/Initialize\ VMware\ Fusion.tool set "" "" ${serial}
+brew install --cask signal
 
 # Install Authy
-brew cask install authy
+brew install --cask authy
+
+# Install Parallels
+brew install --cask homebrew/cask/parallels
 
 # Remove brew cruft
 brew cleanup
 
 # Remove cask cruft
-brew cask cleanup
+brew cleanup
 

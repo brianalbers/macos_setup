@@ -1,12 +1,17 @@
 #!/bin/zsh
 
+echo "############################################################"
+echo "Starting terminal.sh"
+
 # Install or update Home-brew
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "Installing Homebrew"
+    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor
 else
+    echo "Updating Homebrew"
     brew update
 fi
 

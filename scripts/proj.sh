@@ -6,6 +6,10 @@
 #   source /usr/local/bin/proj.sh
 #
 
+echo "############################################################"
+echo "Starting proj.sh"
+
+
 function proj() {
   project=${1}
 
