@@ -8,12 +8,15 @@
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "Installing Homebrew"
+    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor
 else
+    echo "Updating Homebrew"
     brew update
 fi
 
+exit 1;
 # Move git config files to home folder
 cp -f ../dotfiles/gitconfig ~/.gitconfig
 cp -f ../dotfiles/gitignore_global ~/.gitignore_global
