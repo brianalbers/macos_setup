@@ -33,11 +33,6 @@ mas install 455970963
 mas install 417375580
 cp ../dotfiles/com.hegenberg.BetterSnapTool.plist ~/Library/Preferences
 
-# Install Apple Office Applications
-mas install 409203825  # Numbers
-mas install 409183694  # Keynote
-mas install 409201541  # Pages
-
 # Install more recent versions of some macOS tools.
 brew install vim
 brew install grep
@@ -114,7 +109,7 @@ brew cleanup
 brew cask cleanup
 
 # Set hostname based on user input
-echo "Machine name current settings: "
-echo "Please set the computername, hostname, localhostname and netbiosname (Leave blank for no change): "
-read -p "New Hostname: "newhostname
-m hostname $newhostname
+#echo "Machine name current settings: "
+#echo "Please set the computername, hostname, localhostname and netbiosname (Leave blank for no change): "
+#read -p "New Hostname: "newhostname
+#m hostname $newhostname

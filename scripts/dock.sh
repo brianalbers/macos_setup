@@ -25,7 +25,6 @@ dockutil --add '' --type spacer --section apps
 dockutil --add /Users/balbers/Applications/JetBrains\ Toolbox/IntelliJ\ IDEA\ Ultimate.app
 dockutil --add /Applications/iTerm.app
 dockutil --add /Applications/Atom.app
-dockutil --add /Applications/Sourcetree.app
 # dockutil --add '' --type spacer --section apps
 
 

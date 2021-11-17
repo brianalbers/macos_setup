@@ -50,28 +50,8 @@ open -a Docker
 hdiutil detach /dev/disk2
 rm -f Docker.dmg
 
-# Install Webstorm
-brew cask install jetbrains-toolbox
-#brew cask install webstorm
-#brew cask install pycharm-ce
-#brew cask install goland
-#brew cask install intellij-idea
-
-# Install Visual Studio Code
-#brew cask install visual-studio-code
-#code --install-extension msjsdiag.debugger-for-chrome
-#code --install-extension PeterJausovec.vscode-docker
-#code --install-extension ms-vscode.Go
-#ode --install-extension ms-python.python
-#ode --install-extension waderyan.nodejs-extension-pack
-#code --install-extension CoenraadS.bracket-pair-colorizer
-#code --install-extension amandeepmittal.expressjs
-#code --install-extension ms-vscode.node-debug2
-#code --install-extension DanielThielking.aws-cloudformation-yaml
-#code --install-extension loganarnett.lambda-snippets
-
-# Install SourceTree
-brew cask install sourcetree
+# Install 
+brew cask install jetbrains-toolbox 
 
 # Install AWS tools
 brew install s3cmd
