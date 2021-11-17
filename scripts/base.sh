@@ -63,9 +63,6 @@ open /Applications/Slack.app
 # Install ExpressVPN
 brew cask install expressvpn
 
-# Install XFINITY hotspot certs
-open /Users/balbers/Library/Mobile\ Documents/com\~apple\~CloudDocs/XFINITY.mobileconfig
-
 # Install Google Chrome
 brew cask install google-chrome
 
@@ -93,12 +90,6 @@ open /Applications/VMware\ Fusion.app
 #export serial=""
 #/Applications/VMware\ Fusion.app/Contents/Library/Initialize\ VMware\ Fusion.tool set "" "" ${serial}
 
-# Commented out due to license limitations of 2 computers
-#brew cask install evernote
-
-# Install 1Password
-brew cask install 1password
-
 # Install Authy
 brew cask install authy
 
@@ -108,8 +99,3 @@ brew cleanup
 # Remove cask cruft
 brew cask cleanup
 
-# Set hostname based on user input
-#echo "Machine name current settings: "
-#echo "Please set the computername, hostname, localhostname and netbiosname (Leave blank for no change): "
-#read -p "New Hostname: "newhostname
-#m hostname $newhostname
