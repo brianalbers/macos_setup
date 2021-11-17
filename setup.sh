@@ -29,6 +29,7 @@ git clone https://github.com/brianalbers/macos_setup.git
 
 # Execute additional scripts from the cloned repo
 cd macos_setup/scripts
+git checkout parsons
 ./base.sh
 ./terminal.sh
 ./dev_environments.sh
