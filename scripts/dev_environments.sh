@@ -1,25 +1,19 @@
 #!/bin/bash
 
+echo "############################################################"
+echo "Starting dev_environments.sh"
+
 # Install or update Home-brew
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "Installing Homebrew"
+    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew doctor
 else
+    echo "Updating Homebrew"
     brew update
 fi
-
-# Install nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-source ~/.zshrc
-
-# Install node
-nvm install v6.11.1
-nvm use v6.11.1
-
-# Install yarn
-brew install yarn --without-node
 
 # Install python
 brew install python@2
@@ -28,7 +22,7 @@ brew install python@2
 brew install gnupg gnupg2
 
 # install java 8
-brew cask install java8
+brew install --cask java8
 
 # Install RVM and latest stable version of Ruby
 curl -sSL https://get.rvm.io | bash -s stable
@@ -50,33 +44,13 @@ open -a Docker
 hdiutil detach /dev/disk2
 rm -f Docker.dmg
 
-# Install Webstorm
-brew cask install jetbrains-toolbox
-#brew cask install webstorm
-#brew cask install pycharm-ce
-#brew cask install goland
-#brew cask install intellij-idea
-
-# Install Visual Studio Code
-#brew cask install visual-studio-code
-#code --install-extension msjsdiag.debugger-for-chrome
-#code --install-extension PeterJausovec.vscode-docker
-#code --install-extension ms-vscode.Go
-#ode --install-extension ms-python.python
-#ode --install-extension waderyan.nodejs-extension-pack
-#code --install-extension CoenraadS.bracket-pair-colorizer
-#code --install-extension amandeepmittal.expressjs
-#code --install-extension ms-vscode.node-debug2
-#code --install-extension DanielThielking.aws-cloudformation-yaml
-#code --install-extension loganarnett.lambda-snippets
-
-# Install SourceTree
-brew cask install sourcetree
+# Install 
+brew install --cask jetbrains-toolbox 
 
 # Install AWS tools
 brew install s3cmd
 brew install awscli
-brew cask install aws-vault
+brew install --cask aws-vault
 
 # Install AWS SAM
 # please not pip should have automatically been installed with python
