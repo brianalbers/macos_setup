@@ -16,6 +16,7 @@ dockutil --add '' --type spacer --section apps
 dockutil --add /System/Applications/Reminders.app
 dockutil --add /System/Applications/Calendar.app
 dockutil --add /System/Applications/Notes.app
+dockutil --add /System/Applications/News.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Safari.app
 dockutil --add /Applications/Brave\ Browser.app

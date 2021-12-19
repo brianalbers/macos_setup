@@ -8,7 +8,9 @@ which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
     echo "Installing Homebrew"
-    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/balbers/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     brew doctor
 else
     echo "Updating Homebrew"
@@ -16,13 +18,13 @@ else
 fi
 
 # Install python
-brew install python@2
+brew install python
 
 # gpg2 is required for installing RVM
 brew install gnupg gnupg2
 
-# install java 8
-brew install --cask java8
+# install latest openjdk
+brew install openjdk
 
 # Install RVM and latest stable version of Ruby
 curl -sSL https://get.rvm.io | bash -s stable
@@ -37,15 +39,20 @@ brew install go
 brew install hg bzr
 
 # Install Docker for MacOS
-curl -O https://download.docker.com/mac/stable/Docker.dmg
-hdiutil attach Docker.dmg
-cp -rf /Volumes/Docker/Docker.app /Applications
-open -a Docker
-hdiutil detach /dev/disk2
-rm -f Docker.dmg
+if ![ -f /Applications/Docker.app ] ; then
+  curl -O https://desktop.docker.com/mac/main/arm64/Docker.dmg
+  hdiutil attach Docker.dmg
+  cp -rf /Volumes/Docker/Docker.app /Applications
+  open -a Docker
+  hdiutil detach /dev/disk2
+  rm -f Docker.dmg
+fi
 
-# Install 
-brew install --cask jetbrains-toolbox 
+# Install JetBrains Toolbox to manage all other JetBrains apps
+brew install --cask jetbrains-toolbox
+
+# Install XCode
+mas install 497799835
 
 # Install AWS tools
 brew install s3cmd
@@ -54,7 +61,7 @@ brew install --cask aws-vault
 
 # Install AWS SAM
 # please not pip should have automatically been installed with python
-pip install --user aws-sam-cli
+pip3 install --user aws-sam-cli
 
 # Setup ssh
 # Encrypt: openssl enc -aes-256-cbc -md md5 -salt -in configurerc.sh -out configurerc.sh.aes

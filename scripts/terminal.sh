@@ -8,7 +8,9 @@ which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
     echo "Installing Homebrew"
-    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/balbers/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     brew doctor
 else
     echo "Updating Homebrew"
@@ -20,6 +22,7 @@ fi
 chsh -s $(which zsh)
 
 # Install prezto - https://github.com/sorin-ionescu/prezto
+rm -rf "${ZDOTDIR:-$HOME}/.zprezto"
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
@@ -28,7 +31,9 @@ done
 cp -f ../dotfiles/zpreztorc ~/.zpreztorc
 cp -f ../dotfiles/zshenv ~/.zshenv
 cp -f ../dotfiles/zshrc ~/.zshrc
-cp -f proj.sh /usr/local/bin/. 
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/balbers/.zprofile
+
+sudo cp -f proj.sh /usr/local/bin/. 
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -57,11 +62,8 @@ brew install nmap
 brew install ack
 brew install tree
 
-# Install zsh completions
-brew install zsh-completions
-
 # Install iterm2
-brew cask install iterm2
+brew install --cask iterm2
 cp -f ../dotfiles/com.googlecode.iterm2.plist ~/Library/Preferences
 curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 

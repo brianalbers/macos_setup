@@ -26,7 +26,6 @@ defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.0
 
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
@@ -39,10 +38,6 @@ defaults write com.apple.BluetoothAudioAgent "Apple Initial Bitpool Min (editabl
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
-
-# Add top menu bar items
-open '/System/Library/CoreServices/Menu Extras/Bluetooth.menu'
-open '/System/Library/CoreServices/Menu Extras/Volume.menu'
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)

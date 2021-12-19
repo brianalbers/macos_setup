@@ -12,7 +12,9 @@ which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
     echo "Installing Homebrew"
-    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/balbers/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
     brew doctor
 else
     echo "Updating Homebrew"
@@ -45,6 +47,9 @@ mas install 409201541  # Pages
 
 # Install more recent versions of some macOS tools.
 brew install vim
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+
 brew install grep
 brew install openssh
 
@@ -59,14 +64,19 @@ brew install m-cli
 # Install openssl
 brew install openssl
 
+# Install Microsoft Apps
+brew install --cask microsoft-office
+brew install --cask microsoft-teams
+
 # Install iStat menu bar - se
-brew cask install istat-menus
+brew install --cask istat-menus
 open /Applications/iStat\ Menus.app
 
 # Install Slack
-brew install --cask slack
+mas install 803453959  # Slack
 
 # Install ExpressVPN
+sudo softwareupdate --install-rosetta
 brew install --cask expressvpn
 
 # Install XFINITY hotspot certs
@@ -81,8 +91,8 @@ brew install --cask homebrew/cask-versions/firefox-developer-edition\
 # Install Brave Browser
 brew install --cask brave-browser
 
-# Install 1Password
-brew install --cask 1Password
+# Install 1Password 7
+mas install 1333542190
 
 # Install Atom
 brew install --cask atom
@@ -96,11 +106,8 @@ brew install --cask signal
 # Install Authy
 brew install --cask authy
 
-# Install Authy
-brew install --cask authy
-
 # Install Parallels
-brew install --cask homebrew/cask/parallels
+mas install 1085114709
 
 # Remove brew cruft
 brew cleanup
@@ -108,5 +115,5 @@ brew cleanup
 # Set hostname based on user input
 echo "Machine name current settings: "
 echo "Please set the computername, hostname, localhostname and netbiosname (Leave blank for no change): "
-read -p "New Hostname: "newhostname
+read -p 'New Hostname: ' newhostname
 m hostname $newhostname
