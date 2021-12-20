@@ -11,12 +11,18 @@ brew install dockutil
 dockutil --remove all
 
 dockutil --add /System/Applications/System\ Preferences.app
+dockutil --add /System/Applications/App\ Store.app
 #dockutil --add /Applications/Utilities/Grab.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /System/Applications/Reminders.app
 dockutil --add /System/Applications/Calendar.app
 dockutil --add /System/Applications/Notes.app
 dockutil --add /System/Applications/News.app
+dockutil --add /Applications/Spotify.app
+dockutil --add '' --type spacer --section apps
+dockutil --add /Applications/Authy\ Desktop.app
+dockutil --add /Applications/1Password\ 7.app
+dockutil --add /System/Applications/Utilities/Keychain\ Access.app
 dockutil --add '' --type spacer --section apps
 dockutil --add /Applications/Safari.app
 dockutil --add /Applications/Brave\ Browser.app
@@ -24,6 +30,7 @@ dockutil --add /Applications/Slack.app
 dockutil --add /System/Applications/Messages.app
 dockutil --add /Applications/Microsoft\ Outlook.app
 dockutil --add '' --type spacer --section apps
+dockutil --add /Users/balbers/Library/Application\ Support/JetBrains/Toolbox/apps/IDEA-U/ch-0/213.5744.223/IntelliJ\ IDEA.app
 dockutil --add /Applications/iTerm.app
 dockutil --add /Applications/Atom.app
 # dockutil --add '' --type spacer --section apps
