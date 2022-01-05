@@ -18,6 +18,9 @@ fi
 # Install python
 brew install python@2
 
+# Install sshuttle for accessing remote Parsons VDI environment via ssh tunnel
+brew install sshuttle
+
 # gpg2 is required for installing RVM
 brew install gnupg gnupg2
 
