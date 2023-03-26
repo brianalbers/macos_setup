@@ -280,8 +280,8 @@ else
 fi
 
 # Set screensaver
-cp -rf "../wallpaper/Epoch Flip Clock.saver" /Users/balbers/Library/Screen\ Savers
-defaults -currentHost write com.apple.screensaver modulePath -string "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
+cp -rf "../wallpaper/Epoch Flip Clock.saver" ~/Library/Screen\ Savers
+defaults -currentHost write com.apple.screensaver modulePath -string "~/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "~/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
 
 
 ###############################################################################
