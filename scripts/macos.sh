@@ -270,16 +270,16 @@ defaults write com.apple.finder FXICloudDriveEnabled -bool true
 # Desktop																															#
 ###############################################################################
 
-# Set screensaver
+# Set wallpaper
 cp -f ../wallpaper/*.jpg ~/Pictures/
 model_name=$(sysctl hw.model)
 if [[ $model_name = *"MacBookPro"* ]]; then
-	m wallpaper ~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg
+	m wallpaper ~/Pictures/apple-logo-orange-liquid-art-white-background-apple-event-3840x3840-5871.jpg
 else
-	osascript -e 'tell application "System Events" to set picture of (reference to every desktop) to "~/Pictures/minimalist_orange-wallpaper-2560x1440.jpg"'
+	osascript -e 'tell application "System Events" to set picture of (reference to every desktop) to "~/Pictures/apple-logo-orange-liquid-art-white-background-apple-event-3840x3840-5871.jpg"'
 fi
 
-# Set wallpaper
+# Set screensaver
 cp -rf "../wallpaper/Epoch Flip Clock.saver" /Users/balbers/Library/Screen\ Savers
 defaults -currentHost write com.apple.screensaver modulePath -string "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "/Users/balbers/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
 
