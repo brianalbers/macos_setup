@@ -62,9 +62,15 @@ defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool" 80
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Max" 80
 defaults write com.apple.BluetoothAudioAgent "Negotiated Bitpool Min" 80
 
-# Add top menu bar items
-open '/System/Library/CoreServices/Menu Extras/Bluetooth.menu'
-open '/System/Library/CoreServices/Menu Extras/Volume.menu'
+# Add top menu bar items (Bluetooth and Sound)
+# The old /System/Library/CoreServices/Menu Extras/*.menu files are gone; these
+# are Control Center modules now. 18 = always show in menu bar. The second pair
+# is the key name newer macOS versions use.
+defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
+defaults -currentHost write com.apple.controlcenter Sound -int 18
+defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool true
+defaults write com.apple.controlcenter "NSStatusItem Visible Sound" -bool true
+killall ControlCenter &> /dev/null
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -163,10 +169,11 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 ###############################################################################
 
 # Energy Saver Settings
-sudo systemsetup -setcomputersleep 180
-sudo systemsetup -setdisplaysleep 15
-sudo systemsetup -setharddisksleep 180
-sudo systemsetup -setwakeonnetworkaccess on
+# systemsetup's sleep options are broken on newer macOS (Error:-99), so use pmset.
+# -a = all power sources, -b = battery, -c = charger
+sudo pmset -a sleep 180
+sudo pmset -a disksleep 180
+sudo pmset -c womp 1
 sudo pmset -a displaysleep 15
 sudo pmset -b disksleep 60
 sudo pmset -b powernap 0
@@ -177,6 +184,16 @@ sudo pmset -c powernap 1
 ###############################################################################
 # Safari & WebKit                                                             #
 ###############################################################################
+
+# Safari keeps its preferences in a sandbox container, which only apps with
+# Full Disk Access can write to. Without it every write below fails, so check
+# first and skip the section with instructions instead.
+if ! defaults write com.apple.Safari UniversalSearchEnabled -bool false 2>/dev/null; then
+	echo "Skipping Safari settings: your terminal app needs Full Disk Access."
+	echo "  Add it in System Settings > Privacy & Security > Full Disk Access,"
+	echo "  quit and reopen the terminal, then run this script again."
+	open "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension?Privacy_AllFiles"
+else
 
 # Privacy: don’t send search queries to Apple
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
@@ -213,6 +230,12 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 
 # Enable “Do Not Track”
 defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
+
+fi
+
+# Show the Develop menu ("Show features for web developers"). Newer Safari
+# reads this from outside the sandbox, so it works without Full Disk Access.
+defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true
 
 
 ###############################################################################
@@ -297,11 +320,11 @@ defaults write com.apple.finder FXICloudDriveEnabled -bool true
 
 # Set wallpaper
 cp -f ../wallpaper/*.jpg ~/Pictures/
-model_name=$(sysctl hw.model)
-if [[ $model_name = *"MacBookPro"* ]]; then
-	m wallpaper ~/Pictures/apple-logo-orange-liquid-art-white-background-apple-event-3840x3840-5871.jpg
+wallpaper="$HOME/Pictures/apple-logo-orange-liquid-art-white-background-apple-event-3840x3840-5871.jpg"
+if command -v m &> /dev/null; then
+	m wallpaper --set "$wallpaper"
 else
-	osascript -e 'tell application "System Events" to set picture of (reference to every desktop) to "~/Pictures/apple-logo-orange-liquid-art-white-background-apple-event-3840x3840-5871.jpg"'
+	osascript -e "tell application \"System Events\" to set picture of every desktop to \"$wallpaper\""
 fi
 
 # Set screensaver
