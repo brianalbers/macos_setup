@@ -1,27 +1,52 @@
 #!/bin/bash
 
-# Close any open System Preferences panes, to prevent them from overriding
-# settings we’re about to change
-osascript -e 'tell application "System Preferences" to quit'
+# Close any open System Settings (System Preferences before Ventura) panes,
+# to prevent them from overriding settings we’re about to change
+osascript -e 'tell application "System Settings" to quit' 2>/dev/null
+osascript -e 'tell application "System Preferences" to quit' 2>/dev/null
 
 
 ###############################################################################
 # Trackpad				                                                            #
 ###############################################################################
 
-# Enable Dragging - Three finger drag
-# Accessibility > Mouse and Trackpad > Trackpad Options
-defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadFourFingerVertSwipeGesture -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+# Enable Dragging - Three finger drag, plus tap to click
+# Accessibility > Pointer Control > Trackpad Options > Dragging style
+#
+# Newer macOS reads these from both the trackpad driver domains (built-in and
+# Bluetooth) and the per-host global domain, so all three have to agree.
+# Three finger drag also takes over three-finger swipes, so those are turned
+# off and Mission Control / App Exposé / switching spaces move to four fingers,
+# which is what System Settings does when you enable it by hand.
+for domain in com.apple.AppleMultitouchTrackpad com.apple.driver.AppleBluetoothMultitouch.trackpad; do
+	defaults write "$domain" Clicking -bool true
+	defaults write "$domain" Dragging -bool false
+	defaults write "$domain" DragLock -bool false
+	defaults write "$domain" TrackpadThreeFingerDrag -bool true
+	defaults write "$domain" TrackpadThreeFingerHorizSwipeGesture -int 0
+	defaults write "$domain" TrackpadThreeFingerVertSwipeGesture -int 0
+	defaults write "$domain" TrackpadFourFingerHorizSwipeGesture -int 2
+	defaults write "$domain" TrackpadFourFingerVertSwipeGesture -int 2
+done
+# Must be a boolean; delete first so an older integer value doesn't keep its type
+defaults -currentHost delete NSGlobalDomain com.apple.trackpad.threeFingerDragGesture 2>/dev/null
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerDragGesture -bool true
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerHorizSwipeGesture -int 0
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerVertSwipeGesture -int 0
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.fourFingerHorizSwipeGesture -int 2
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.fourFingerVertSwipeGesture -int 2
 
 # Set tracking speed - how fast the cursor mouse with touchpad
 defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.0
 
+# Tap to click (login screen reads the plain domain, the user session reads currentHost)
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Apply trackpad changes without logging out (falls back to needing a logout
+# if the helper isn't present on this macOS version)
+activate_settings=/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings
+[ -x "$activate_settings" ] && "$activate_settings" -u
 
 
 # Always show scrollbars
