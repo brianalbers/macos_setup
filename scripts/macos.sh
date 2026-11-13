@@ -318,18 +318,58 @@ defaults write com.apple.finder FXICloudDriveEnabled -bool true
 # Desktop																															#
 ###############################################################################
 
-# Set wallpaper
+# Copy extra wallpaper images to ~/Pictures
 cp -f ../wallpaper/*.jpg ~/Pictures/
-wallpaper="$HOME/Pictures/apple-logo-orange-liquid-art-white-background-apple-event-3840x3840-5871.jpg"
-if command -v m &> /dev/null; then
-	m wallpaper --set "$wallpaper"
-else
-	osascript -e "tell application \"System Events\" to set picture of every desktop to \"$wallpaper\""
-fi
 
-# Set screensaver
-cp -rf "../wallpaper/Epoch Flip Clock.saver" ~/Library/Screen\ Savers
-defaults -currentHost write com.apple.screensaver modulePath -string "~/Library/Screen Savers/Epoch Flip Clock.saver"; defaults -currentHost write com.apple.screensaver moduleName -string "Epoch Flip Clock"; defaults -currentHost write com.apple.screensaver moduleDict -dict moduleName "Epoch Flip Clock" path "~/Library/Screen Savers/Epoch Flip Clock.saver/" type 0
+# Wallpaper and screen saver: built-in "Oregon Sunset" aerial for both (macOS 14+).
+# Written as a "linked" entry, same as System Settings with "Show as screen saver" on.
+# Aerial ID comes from WallpaperAerialsExtension.appex's entries.json; the video
+# downloads in the background the first time it is shown.
+aerial_id="8A57476A-E177-4AAD-B317-643F681584E1"
+wallpaper_store_dir="$HOME/Library/Application Support/com.apple.wallpaper/Store"
+now=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+aerial_config=$(printf '<?xml version="1.0" encoding="UTF-8"?><plist version="1.0"><dict><key>assetID</key><string>%s</string></dict></plist>' "$aerial_id" \
+	| plutil -convert binary1 -o - - | base64)
+
+linked_entry() {
+	cat <<-EOF
+	<dict>
+		<key>Linked</key>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>Choices</key>
+				<array><dict>
+					<key>Configuration</key><data>$aerial_config</data>
+					<key>Files</key><array/>
+					<key>Provider</key><string>com.apple.wallpaper.choice.aerials</string>
+				</dict></array>
+				<key>EncodedOptionValues</key><string>\$null</string>
+				<key>Shuffle</key><string>\$null</string>
+			</dict>
+			<key>LastSet</key><date>$now</date>
+			<key>LastUse</key><date>$now</date>
+		</dict>
+		<key>Type</key><string>linked</string>
+	</dict>
+	EOF
+}
+
+mkdir -p "$wallpaper_store_dir"
+cat > "$wallpaper_store_dir/Index.plist" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AllSpacesAndDisplays</key>$(linked_entry)
+	<key>Displays</key><dict/>
+	<key>Spaces</key><dict/>
+	<key>SystemDefault</key>$(linked_entry)
+</dict>
+</plist>
+EOF
+plutil -convert binary1 "$wallpaper_store_dir/Index.plist"
+killall WallpaperAgent 2>/dev/null
 
 
 ###############################################################################
