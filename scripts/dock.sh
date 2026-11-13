@@ -28,8 +28,8 @@ dockutil --add /Applications/Brave\ Browser.app
 dockutil --add '' --type spacer --section apps
 
 dockutil --add /Applications/Proton\ Mail.app
-dockutil --add /Applications/ProtonVPN.app
 dockutil --add /Applications/Proton\ Pass.app
+dockutil --add /Applications/ProtonVPN.app
 
 dockutil --add '' --type spacer --section apps
 
