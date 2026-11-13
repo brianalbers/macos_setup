@@ -32,6 +32,13 @@ brew install nmap
 brew install ack
 brew install tree
 
+brew install proton-pass
+brew install proton-mail
+brew install protonvpn
+brew install chatgpt
+brew install --cask claude
+brew install --cask claude-code
+
 # Install m-cli - https://github.com/rgcr/m-cli                                               #
 brew install m-cli
 
@@ -45,33 +52,17 @@ open /Applications/iStat\ Menus.app
 # Install Homebrew Cask
 brew tap homebrew/cask
 
-# Install Slack
-brew install slack
-open /Applications/Slack.app
-
-# Install ExpressVPN
-brew install expressvpn
-
-# Install Google Chrome
-brew install google-chrome
-
 # Install Firefox
 brew install firefox
 
 # Install Brave Browser
 brew install brave-browser
 
-# Install 1Password
-brew install 1Password
-
 # Install Signal
 brew install signal
 
 # Install 1Password
 brew install 1password
-
-# Install Authy
-brew install authy
 
 # Remove brew cruft
 brew cleanup
