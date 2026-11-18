@@ -32,9 +32,14 @@ brew install nmap
 brew install ack
 brew install tree
 
+brew install mas
+
 brew install proton-pass
 brew install proton-mail
 brew install protonvpn
+sudo mas get 6502835663       # Proton Pass for Safari extension
+sudo mas install 6502835663   # Proton Pass for Safari extension
+
 brew install chatgpt
 brew install --cask claude
 brew install --cask claude-code

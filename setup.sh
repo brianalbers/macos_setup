@@ -33,4 +33,5 @@ cd macos_setup/scripts
 ./terminal.sh
 ./dev_environments.sh
 ./macos.sh
+./safari-privacy.sh
 ./dock.sh

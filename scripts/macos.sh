@@ -36,6 +36,11 @@ defaults -currentHost write NSGlobalDomain com.apple.trackpad.threeFingerVertSwi
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.fourFingerHorizSwipeGesture -int 2
 defaults -currentHost write NSGlobalDomain com.apple.trackpad.fourFingerVertSwipeGesture -int 2
 
+# Swipe between pages (Back/Forward in browsers) with two fingers, since
+# three-finger swipes belong to three finger drag.
+# Trackpad > More Gestures > Swipe between pages > Scroll left or right with two fingers
+defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
+
 # Set tracking speed - how fast the cursor mouse with touchpad
 defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2.0
 
